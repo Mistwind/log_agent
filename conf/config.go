@@ -3,16 +3,19 @@ package conf
 // Config 整个项目的配置
 type Config struct {
 	Kafka Kafka `ini:"kafka"`
-	Log   Log   `ini:"log"`
+	Etcd  Etcd  `ini:"etcd"`
 }
 
 // Kafka kafka的配置
 type Kafka struct {
-	Address string `ini:"address"`
-	Topic   string `ini:"topic"`
+	Address     string `ini:"address"`
+	ChanMaxSize int    `ini:"chan_max_size"`
+	// Topic   string `ini:"topic"`
 }
 
-// Log 日志的配置
-type Log struct {
-	FileName string `ini:"filename"`
+// Etcd etcd的配置
+type Etcd struct {
+	Address string `ini:"address"`
+	Key     string `ini:"collect_log_key"`
+	Timeout int    `ini:"timeout"`
 }
